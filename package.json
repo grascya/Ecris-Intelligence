@@ -1,0 +1,58 @@
+{
+  "name": "ecris-intelligence",
+  "version": "1.0.0",
+  "description": "Portable writing-intelligence plugin: skills, writing agent, and MCP tools that any host can plug in.",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "grascya"
+  },
+  "homepage": "https://github.com/grascya/ecris-intelligence",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grascya/ecris-intelligence.git"
+  },
+  "bugs": {
+    "url": "https://github.com/grascya/ecris-intelligence/issues"
+  },
+  "keywords": [
+    "ecris",
+    "writing",
+    "mcp",
+    "cursor-plugin",
+    "skills",
+    "agent"
+  ],
+  "mcpName": "io.github.grascya/ecris-intelligence",
+  "bin": {
+    "ecris-intelligence": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "skills",
+    "agents",
+    "assets",
+    "mcp.json",
+    ".cursor-plugin",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.18.0",
+    "@types/node": "^24.13.3",
+    "typescript": "~5.9.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.0"
+  }
+}

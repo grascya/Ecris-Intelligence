@@ -1,0 +1,30 @@
+{
+  "name": "ecris-intelligence",
+  "displayName": "Ecris Intelligence",
+  "version": "1.0.0",
+  "description": "Writing agent, academic/humanizer/reviewer skills, and MCP tools to improve selected text using attached references. Works in Cursor and any MCP host.",
+  "author": {
+    "name": "grascya"
+  },
+  "homepage": "https://github.com/grascya/ecris-intelligence",
+  "repository": "https://github.com/grascya/ecris-intelligence",
+  "license": "MIT",
+  "logo": "assets/logo.svg",
+  "keywords": [
+    "writing",
+    "mcp",
+    "skills",
+    "agent",
+    "references",
+    "academic"
+  ],
+  "category": "developer-tools",
+  "tags": [
+    "writing",
+    "mcp",
+    "skills",
+    "agent"
+  ],
+  "skills": "./skills/",
+  "agents": "./agents/"
+}

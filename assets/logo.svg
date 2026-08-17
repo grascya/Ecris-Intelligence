@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Ecris Intelligence">
+  <rect width="128" height="128" rx="28" fill="#1c1917"/>
+  <path fill="#e7e5e4" d="M86.5 22.5c2.4-2.4 6.3-2.4 8.7 0l10.3 10.3c2.4 2.4 2.4 6.3 0 8.7L56.2 90.8 36 96.8l6-20.2z"/>
+  <path fill="#a8a29e" d="M42.5 76.8 36 96.8l20.2-6.5z"/>
+  <circle cx="40" cy="100" r="8" fill="#78716c"/>
+</svg>

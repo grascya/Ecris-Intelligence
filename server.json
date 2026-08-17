@@ -1,0 +1,30 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.grascya/ecris-intelligence",
+  "title": "Ecris Intelligence",
+  "description": "Improve or review selected writing using attached knowledge references.",
+  "version": "1.0.0",
+  "websiteUrl": "https://github.com/grascya/ecris-intelligence",
+  "repository": {
+    "url": "https://github.com/grascya/ecris-intelligence",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "ecris-intelligence",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "OPENROUTER_API_KEY",
+          "description": "OpenRouter API key used to run improve_with_references and review_document",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
