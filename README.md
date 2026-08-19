@@ -20,7 +20,7 @@ Skills and the agent are playbooks. Rewrite and review run through the MCP serve
 
 Install the plugin once, then enable MCP in each workspace that needs rewrite/review tools.
 
-In **Cursor Settings → Rules, Skills, Subagents**, turn on **Include third-party Plugins, Skills, and other configs**.
+Plugins, skills, subagents, rules, and MCPs live on the **Customize** page. Open it with `Ctrl+Shift+P` → **Open Customize**. You can also use the left-rail icons (hover for the page name; the cube is often plugins).
 
 **1. Install the plugin once**
 
@@ -37,9 +37,13 @@ Copy the folder that contains `.cursor-plugin/plugin.json` to:
   mcp.json
 ```
 
-Copy the folder (a symlink to a repo outside this path will not load). Reload with `Ctrl+Shift+P` → **Developer: Reload Window**. Open **Customize** in the sidebar, filter by **user**, and confirm the plugin, skills, and `writing-agent`.
+Then:
 
-Or in **Customize**, paste `https://github.com/grascya/ecris-intelligence` into the plugin search box.
+1. `Ctrl+Shift+P` → **Developer: Reload Window**
+2. `Ctrl+Shift+P` → **Open Customize**
+3. Check **Plugins**, **Skills**, and **MCPs** for `ecris-intelligence`
+
+On **Customize → Plugins**, you can instead use **Add plugin from local repo** and point it at the clone, or paste `https://github.com/grascya/ecris-intelligence` into the plugin search box.
 
 **Public Marketplace (after review)**
 
