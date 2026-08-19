@@ -18,14 +18,36 @@ Skills and the agent are playbooks. Rewrite and review run through the MCP serve
 
 ## Add to another Cursor project
 
-Do not copy this repository into the other project. Install the plugin in Cursor, then enable MCP in that workspace.
+Do not copy this repository into the other project. Install the plugin **once**, then turn MCP on in each workspace that needs rewrite/review tools.
+
+Plugin install lives on **Customize** in the left sidebar. There is no **Settings → Plugins** screen. The Extensions panel (`Ctrl+Shift+X`) is VS Code extensions, not Cursor plugins.
+
+Also check **Cursor Settings → Rules, Skills, Subagents** and turn on **Include third-party Plugins, Skills, and other configs**. If that is off, a local plugin often never appears.
 
 **1. Install the plugin once**
 
-- Clone this repository, or use `https://github.com/grascya/ecris-intelligence`.
-- In Cursor: **Settings → Plugins** and add the local plugin folder, or import the repo URL.
+Copy the plugin root (the folder that contains `.cursor-plugin/plugin.json`) here:
 
-After that, the skills and `writing-agent` are available in every workspace.
+- Windows: `%USERPROFILE%\.cursor\plugins\local\ecris-intelligence`
+- macOS / Linux: `~/.cursor/plugins/local/ecris-intelligence`
+
+Clone it somewhere first if you want, then copy. The layout should look like:
+
+```text
+~/.cursor/plugins/local/ecris-intelligence/
+  .cursor-plugin/plugin.json
+  skills/
+  agents/
+  mcp.json
+```
+
+Do not nest it as `local/ecris-intelligence/ecris-intelligence/...`. Cursor has no local-folder picker; you copy files into that path yourself.
+
+Reload: `Ctrl+Shift+P` → **Developer: Reload Window**. Open **Customize**, filter by **user**, and confirm the plugin, skills, and `writing-agent` showed up.
+
+On Windows, copy the folder instead of using a symlink. Cursor currently rejects local-plugin symlinks whose target is outside `~/.cursor/plugins/local`.
+
+To try a URL instead of copying files, open **Customize**, use the plugin search box, and paste `https://github.com/grascya/ecris-intelligence`. **Import from Repo** on the Cursor dashboard is for team marketplaces, not a personal one-off install.
 
 **Public Marketplace (after review)**
 
@@ -33,9 +55,19 @@ After that, the skills and `writing-agent` are available in every workspace.
 /add-plugin ecris-intelligence
 ```
 
-**2. Enable MCP in the other project**
+**2. Enable MCP in the workspace**
 
-Create `.cursor/mcp.json` in that project. Point `cwd` at **this** repo if you are testing a local clone:
+Skills can load without MCP. Enable the server separately:
+
+1. Open **Customize → MCPs**.
+2. Find `ecris-intelligence` and turn it on.
+3. Set `OPENROUTER_API_KEY` if the plugin asks for it.
+
+If it never appears there, add it globally in `~/.cursor/mcp.json` (Windows: `%USERPROFILE%\.cursor\mcp.json`) or per-project in `.cursor/mcp.json`. After saving, toggle the server off/on or reload the window.
+
+Then check **Output** (`Ctrl+Shift+U`) → **MCP Logs** if it stays disconnected.
+
+Local clone (dev):
 
 ```json
 {
@@ -52,7 +84,7 @@ Create `.cursor/mcp.json` in that project. Point `cwd` at **this** repo if you a
 }
 ```
 
-If the other project should not depend on a local clone, use the GitHub package instead:
+GitHub package (no local clone):
 
 ```json
 {
@@ -68,7 +100,7 @@ If the other project should not depend on a local clone, use the GitHub package 
 }
 ```
 
-Reload MCP. You should see `improve_with_references` and `review_document`.
+You should see `improve_with_references` and `review_document`.
 
 **Skills only** (any host that loads `SKILL.md`)
 

@@ -201,11 +201,11 @@ That last point matters: a missing API key or empty selection is a tool error th
 
 | File | Role |
 |---|---|
-| `mcp.json` | Example Cursor/client config: `npx -y github:grascya/ecris-intelligence` plus `OPENROUTER_API_KEY` |
+| `mcp.json` | Cursor plugin MCP entry: `npx -y github:grascya/ecris-intelligence` plus `OPENROUTER_API_KEY`. Cursor discovers this when the plugin is loaded from `~/.cursor/plugins/local` or a marketplace. |
 | `server.json` | MCP Registry metadata (`mcpName` `io.github.grascya/ecris-intelligence`), npm package, required secret env |
 | `.cursor-plugin/plugin.json` | Cursor plugin manifest: display name, logo, paths to `skills/` and `agents/` |
 
-The plugin manifest does **not** start the MCP server by itself. Cursor uses `mcp.json` (or the user’s MCP settings) for the process, and `plugin.json` for skills/agent/marketplace metadata.
+The plugin manifest does **not** start the MCP server by itself. Cursor loads skills and the agent from `plugin.json`, and the MCP process from `mcp.json` (or the user’s MCP settings). The server still has to be turned on in **Customize → MCPs** for that workspace.
 
 ---
 
@@ -446,7 +446,7 @@ Those hosts will apply the playbooks in their own agent loop. They will **not** 
 
 Category is `developer-tools`. Publishing is **not** a PR to `cursor/plugins`; submit the public GitHub repo at [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish). After approval, users can `/add-plugin ecris-intelligence`.
 
-Until then, developers add the cloned folder under **Settings → Plugins**.
+Until then, install locally (see [README.md](./README.md)): copy the plugin root into `~/.cursor/plugins/local/ecris-intelligence`, reload the window, then enable the MCP server in **Customize → MCPs**. There is no **Settings → Plugins** screen; **Import from Repo** on the Cursor dashboard is for team marketplaces, not a personal install. On Windows, copy the folder — Cursor currently rejects local-plugin symlinks whose target is outside `~/.cursor/plugins/local`.
 
 ---
 
