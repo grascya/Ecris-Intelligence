@@ -446,7 +446,7 @@ Those hosts will apply the playbooks in their own agent loop. They will **not** 
 
 Category is `developer-tools`. Publishing is **not** a PR to `cursor/plugins`; submit the public GitHub repo at [cursor.com/marketplace/publish](https://cursor.com/marketplace/publish). After approval, users can `/add-plugin ecris-intelligence`.
 
-Until then, install locally (see [README.md](./README.md)): copy the plugin root into `~/.cursor/plugins/local/ecris-intelligence`, reload the window, then enable the MCP server in **Customize → MCPs**. There is no **Settings → Plugins** screen; **Import from Repo** on the Cursor dashboard is for team marketplaces, not a personal install. On Windows, copy the folder — Cursor currently rejects local-plugin symlinks whose target is outside `~/.cursor/plugins/local`.
+Until then, install locally from [README.md](./README.md): copy the plugin into `~/.cursor/plugins/local/ecris-intelligence`, reload the window, then enable the MCP server in **Customize → MCPs**.
 
 ---
 
